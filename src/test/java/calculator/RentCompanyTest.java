@@ -1,8 +1,14 @@
 package calculator;
 
+import calculator.model.Avante;
+import calculator.model.K5;
+import calculator.model.RentCompany;
+import calculator.model.Sonata;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class RentCompanyTest {
+
     private static final String NEWLINE = System.getProperty("line.separator");
 
     @Test
@@ -15,12 +21,7 @@ public class RentCompanyTest {
         company.addCar(new K5(390));
 
         String report = company.generateReport();
-        assertThat(report).isEqualTo(
-            "Sonata : 15리터" + NEWLINE +
-                "K5 : 20리터" + NEWLINE +
-                "Sonata : 12리터" + NEWLINE +
-                "Avante : 20리터" + NEWLINE +
-                "K5 : 30리터" + NEWLINE
-        );
+        Assertions.assertThat(report)
+            .isEqualTo("Sonata : 15리터" + NEWLINE + "K5 : 20리터" + NEWLINE + "Sonata : 12리터" + NEWLINE + "Avante : 20리터" + NEWLINE + "K5 : 30리터" + NEWLINE);
     }
 }

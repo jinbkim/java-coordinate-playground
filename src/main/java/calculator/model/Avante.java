@@ -1,6 +1,6 @@
 package calculator.model;
 
-public class Avante extends Car {
+public class Avante implements Car {
 
     private final String name = "Avante";
     private final int distancePerLiter = 15;
@@ -10,23 +10,50 @@ public class Avante extends Car {
         this.tripDistance = tripDistance;
     }
 
-    @Override
-    double getDistancePerLiter() {
+    public double getDistancePerLiter() {
         return distancePerLiter;
     }
 
-    @Override
-    double getTripDistance() {
+    public double getTripDistance() {
         return tripDistance;
     }
 
-    @Override
-    String getName() {
+    public String getName() {
         return name;
     }
 
-    @Override
-    double getChargeQuantity() {
-        return super.getChargeQuantity();
+    public double getChargeQuantity() {
+        return getTripDistance() / getDistancePerLiter();
     }
 }
+
+//public class Avante extends Car {
+//
+//    private final String name = "Avante";
+//    private final int distancePerLiter = 15;
+//    private int tripDistance;
+//
+//    public Avante(int tripDistance) {
+//        this.tripDistance = tripDistance;
+//    }
+//
+//    @Override
+//    double getDistancePerLiter() {
+//        return distancePerLiter;
+//    }
+//
+//    @Override
+//    double getTripDistance() {
+//        return tripDistance;
+//    }
+//
+//    @Override
+//    String getName() {
+//        return name;
+//    }
+//
+//    @Override
+//    double getChargeQuantity() {
+//        return super.getChargeQuantity();
+//    }
+//}

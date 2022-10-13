@@ -3,7 +3,7 @@ package calculator.model;
 import calculator.view.OutputView;
 import java.util.List;
 
-public class Coordinates {
+public class LineCalculator {
 
     private final static int COORDINATE_RANGE_MAX = 24;
     private final static String VERTICAL_LINE = "┃";
@@ -14,7 +14,7 @@ public class Coordinates {
     private final Coordinate src;
     private final Coordinate dst;
 
-    public Coordinates(List<Integer> coordinates) {
+    public LineCalculator(List<Integer> coordinates) {
         src = new Coordinate(coordinates.get(0), coordinates.get(1));
         dst = new Coordinate(coordinates.get(2), coordinates.get(3));
     }
@@ -34,7 +34,7 @@ public class Coordinates {
     }
 
     public void printDistance() {
-        System.out.println(OutputView.LINE_DISTANCE + src.getDistance(dst));
+        System.out.println(OutputView.LINE_DISTANCE + src.getLineDistance(dst));
     }
 
     private void printXCoordinate() {

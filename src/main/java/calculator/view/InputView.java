@@ -1,6 +1,6 @@
 package calculator.view;
 
-import calculator.model.Coordinates;
+import calculator.model.LineCalculator;
 import calculator.utils.Validator;
 import java.util.Arrays;
 import java.util.List;
@@ -15,13 +15,13 @@ public class InputView {
 
     private final Validator inputValidator = new Validator();
 
-    public Coordinates requestCoordinate() {
+    public LineCalculator requestCoordinate() {
         String input = requestInput(OutputView.REQUEST_COORDINATE);
 
         return validateCoordinate(input);
     }
 
-    public Coordinates validateCoordinate(String input) {
+    public LineCalculator validateCoordinate(String input) {
         input = input.replaceAll(SPACE_REGEX, "");
         try {
             inputValidator.validateCoordinateInput(input);
@@ -32,13 +32,13 @@ public class InputView {
         }
     }
 
-    private Coordinates parseCoordinateInput(String input) {
+    private LineCalculator parseCoordinateInput(String input) {
         input = input.replaceAll(COORDINATE_DELETE_REGEX, "");
         List<Integer> coordinates = Arrays.stream(input.split(COORDINATE_SPLIT_REGEX))
             .map(Integer::parseInt)
             .collect(Collectors.toList());
 
-        return new Coordinates(coordinates);
+        return new LineCalculator(coordinates);
     }
 
     private String requestInput(String input) {

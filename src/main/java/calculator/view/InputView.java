@@ -21,15 +21,6 @@ public class InputView {
         return validateCoordinate(input);
     }
 
-    public Coordinates parseCoordinateInput(String input) {
-        input = input.replaceAll(COORDINATE_DELETE_REGEX, "");
-        List<Integer> coordinates = Arrays.stream(input.split(COORDINATE_SPLIT_REGEX))
-            .map(Integer::parseInt)
-            .collect(Collectors.toList());
-
-        return new Coordinates(coordinates);
-    }
-
     public Coordinates validateCoordinate(String input) {
         input = input.replaceAll(SPACE_REGEX, "");
         try {
@@ -39,6 +30,15 @@ public class InputView {
             System.out.println(e.getMessage());
             return requestCoordinate();
         }
+    }
+
+    private Coordinates parseCoordinateInput(String input) {
+        input = input.replaceAll(COORDINATE_DELETE_REGEX, "");
+        List<Integer> coordinates = Arrays.stream(input.split(COORDINATE_SPLIT_REGEX))
+            .map(Integer::parseInt)
+            .collect(Collectors.toList());
+
+        return new Coordinates(coordinates);
     }
 
     private String requestInput(String input) {

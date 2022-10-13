@@ -9,6 +9,7 @@ public class Calculator {
 
     public void run() {
         Coordinates coordinates = inputView.requestCoordinate();
-        coordinates.print();
+        coordinates.printCoordinate();
+        coordinates.printDistance();
     }
 }

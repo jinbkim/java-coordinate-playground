@@ -25,4 +25,8 @@ public class Coordinate {
     public boolean isSameY(int y) {
         return this.y.isSame(y);
     }
+
+    public double getDistance(Coordinate c) {
+        return Math.sqrt(Math.pow(x.get() - c.x.get(), 2) + Math.pow(y.get() - c.y.get(), 2));
+    }
 }

@@ -1,5 +1,6 @@
 package calculator.model;
 
+import calculator.view.OutputView;
 import java.util.List;
 
 public class Coordinates {
@@ -26,10 +27,14 @@ public class Coordinates {
         return dst;
     }
 
-    public void print() {
+    public void printCoordinate() {
         printVerticalLineAndYCoordinateAndPoints();
         printHorizontalLine();
         printXCoordinate();
+    }
+
+    public void printDistance() {
+        System.out.println(OutputView.LINE_DISTANCE + src.getDistance(dst));
     }
 
     private void printXCoordinate() {
@@ -37,6 +42,7 @@ public class Coordinates {
         for (int i = 1; i <= COORDINATE_RANGE_MAX; i++) {
             System.out.print(String.format("%3s", i));
         }
+        System.out.println("\n");
     }
 
     private void printHorizontalLine() {

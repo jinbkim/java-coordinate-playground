@@ -19,12 +19,12 @@ public class Coordinates {
         dst = new Coordinate(coordinates.get(2), coordinates.get(3));
     }
 
-    public Coordinate getSrc() {
-        return src;
+    public boolean isSameSrc(int x, int y) {
+        return src.isSameX(x) && src.isSameY(y);
     }
 
-    public Coordinate getDst() {
-        return dst;
+    public boolean isSameDst(int x, int y) {
+        return dst.isSameX(x) && dst.isSameY(y);
     }
 
     public void printCoordinate() {

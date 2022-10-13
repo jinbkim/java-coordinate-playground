@@ -10,14 +10,6 @@ public class Coordinate {
         this.y = new Pos(y);
     }
 
-    public Pos getX() {
-        return x;
-    }
-
-    public Pos getY() {
-        return y;
-    }
-
     public boolean isSameX(int x) {
         return this.x.isSame(x);
     }

@@ -16,4 +16,8 @@ public class Pos {
     public int get() {
         return p;
     }
+
+    public boolean isSame(int p) {
+        return this.p == p;
+    }
 }

@@ -17,4 +17,12 @@ public class Coordinate {
     public Pos getY() {
         return y;
     }
+
+    public boolean isSameX(int x) {
+        return this.x.isSame(x);
+    }
+
+    public boolean isSameY(int y) {
+        return this.y.isSame(y);
+    }
 }

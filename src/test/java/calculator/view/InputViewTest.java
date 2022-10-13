@@ -1,12 +1,11 @@
-package calculator.utils;
+package calculator.view;
 
 import calculator.model.Coordinate;
 import calculator.model.Coordinates;
-import calculator.view.InputView;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-class ValidatorTest {
+class InputViewTest {
 
     private final InputView inputView = new InputView();
 

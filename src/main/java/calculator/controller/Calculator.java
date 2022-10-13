@@ -1,5 +1,6 @@
 package calculator.controller;
 
+import calculator.model.Coordinates;
 import calculator.view.InputView;
 
 public class Calculator {
@@ -7,6 +8,6 @@ public class Calculator {
     private final InputView inputView = new InputView();
 
     public void run() {
-        inputView.requestCoordinate();
+        Coordinates coordinates = inputView.requestCoordinate();
     }
 }

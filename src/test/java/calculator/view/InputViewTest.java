@@ -28,4 +28,5 @@ class InputViewTest {
                 .get())
             .isEqualTo(4);
     }
+
 }

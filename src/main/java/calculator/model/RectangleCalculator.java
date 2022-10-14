@@ -16,7 +16,31 @@ public class RectangleCalculator extends Calculator {
     }
 
     public void printResult() {
+        System.out.println(OutputView.RECTANGLE_AREA + getArea());
+    }
 
+    public double getArea() {
+        Coordinate coordinate = coordinates.get(0);
+
+        Double width = getWidth(coordinate);
+        Double height = getHeight(coordinate);
+        return width * height;
+    }
+
+    private double getWidth(Coordinate baseCoordinate) {
+        return coordinates.stream()
+            .filter(c -> !c.isSameX(baseCoordinate) && c.isSameY(baseCoordinate))
+            .map(c -> c.getLineDistance(baseCoordinate))
+            .findFirst()
+            .get();
+    }
+
+    private double getHeight(Coordinate baseCoordinate) {
+        return coordinates.stream()
+            .filter(c -> c.isSameX(baseCoordinate) && !c.isSameY(baseCoordinate))
+            .map(c -> c.getLineDistance(baseCoordinate))
+            .findFirst()
+            .get();
     }
 
     private boolean isRectangle() {

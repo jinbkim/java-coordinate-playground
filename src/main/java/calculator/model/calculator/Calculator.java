@@ -1,5 +1,6 @@
-package calculator.model;
+package calculator.model.calculator;
 
+import calculator.model.Coordinate;
 import java.util.ArrayList;
 import java.util.List;
 

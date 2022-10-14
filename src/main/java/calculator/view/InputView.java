@@ -1,7 +1,7 @@
 package calculator.view;
 
-import calculator.model.Calculator;
-import calculator.model.RectangleCalculator;
+import calculator.model.calculator.Calculator;
+import calculator.model.calculator.RectangleCalculator;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;

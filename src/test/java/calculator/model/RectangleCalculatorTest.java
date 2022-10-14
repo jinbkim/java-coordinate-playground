@@ -1,5 +1,6 @@
 package calculator.model;
 
+import calculator.model.calculator.RectangleCalculator;
 import java.util.Arrays;
 import java.util.List;
 import org.assertj.core.api.Assertions;

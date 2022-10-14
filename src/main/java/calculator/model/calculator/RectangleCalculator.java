@@ -1,5 +1,6 @@
-package calculator.model;
+package calculator.model.calculator;
 
+import calculator.model.Coordinate;
 import calculator.view.OutputView;
 import java.util.List;
 

@@ -27,7 +27,7 @@ public class InputView {
         try {
             List<Integer> coordinates = parseCoordinate(input);
 
-            inputValidator.validateCoordinate(input);
+            inputValidator.validateLineCoordinate(input);
             return new LineCalculator(coordinates);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());

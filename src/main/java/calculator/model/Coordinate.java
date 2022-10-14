@@ -27,6 +27,6 @@ public class Coordinate {
     }
 
     public double getLineDistance(Coordinate c) {
-        return Math.sqrt(Math.pow(x.get() - c.x.get(), 2) + Math.pow(y.get() - c.y.get(), 2));
+        return Math.sqrt(Math.pow(x.getDiff(c.x), 2) + Math.pow(y.getDiff(c.y), 2));
     }
 }

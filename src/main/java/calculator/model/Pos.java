@@ -13,8 +13,8 @@ public class Pos {
         this.p = p;
     }
 
-    public int get() {
-        return p;
+    public int getDiff(Pos pos) {
+        return this.p - pos.p;
     }
 
     public boolean isSame(int p) {

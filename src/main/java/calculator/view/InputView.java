@@ -2,6 +2,7 @@ package calculator.view;
 
 import calculator.model.Calculator;
 import calculator.model.LineCalculator;
+import calculator.model.RectangleCalculator;
 import calculator.utils.Validator;
 import java.util.Arrays;
 import java.util.List;
@@ -14,7 +15,7 @@ public class InputView {
     private static final String COORDINATE_DELETE_REGEX = "[()]";
     private static final String COORDINATE_SPLIT_REGEX = "[,-]";
 
-    private final Validator inputValidator = new Validator();
+    private final Validator validator = new Validator();
 
     public Calculator requestCoordinate() {
         String input = requestInput(OutputView.REQUEST_COORDINATE);
@@ -27,8 +28,10 @@ public class InputView {
         try {
             List<Integer> coordinates = parseCoordinate(input);
 
-            inputValidator.validateLineCoordinate(input);
-            return new LineCalculator(coordinates);
+//            validator.validateLineCoordinate(input);
+//            return new LineCalculator(coordinates);
+
+            return new RectangleCalculator(coordinates);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             return requestCoordinate();

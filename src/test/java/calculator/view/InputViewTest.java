@@ -11,11 +11,16 @@ class InputViewTest {
     @Test
     void 좌표_정보_파싱하기() {
         Calculator lineCalculator = inputView.validateCoordinate("  (  1  ,  2  )  -  (  3  ,  4  )  ");
+        Calculator rectangleCalculator = inputView.validateCoordinate("  (  1  ,  2  )  -  (  3  ,  4  )  -  (  5  ,  6  )  -  (  7  ,  8  )");
 
         Assertions.assertThat(lineCalculator.isPoint(1, 2))
             .isEqualTo(true);
         Assertions.assertThat(lineCalculator.isPoint(3, 4))
             .isEqualTo(true);
+        Assertions.assertThat(rectangleCalculator.isPoint(1, 2)).isEqualTo(true);
+        Assertions.assertThat(rectangleCalculator.isPoint(3, 4)).isEqualTo(true);
+        Assertions.assertThat(rectangleCalculator.isPoint(5, 6)).isEqualTo(true);
+        Assertions.assertThat(rectangleCalculator.isPoint(7, 8)).isEqualTo(true);
     }
 
     @Test

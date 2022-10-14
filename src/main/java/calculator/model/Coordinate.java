@@ -29,4 +29,11 @@ public class Coordinate {
     public double getLineDistance(Coordinate c) {
         return Math.sqrt(Math.pow(x.getDiff(c.x), 2) + Math.pow(y.getDiff(c.y), 2));
     }
+
+    public double getInclination(Coordinate c) {
+        if (x.getDiff(c.x) == 0) {
+            return Double.POSITIVE_INFINITY;
+        }
+        return Math.abs(y.getDiff(c.y) / x.getDiff(c.x));
+    }
 }

@@ -6,11 +6,19 @@ import java.util.regex.Pattern;
 public class Validator {
 
     private static final String LINE_COORDINATE_REGEX = "^\\([0-9]+,[0-9]+\\)-\\([0-9]+,[0-9]+\\)$";
+    private static final String RECTANGLE_COORDINATE_REGEX = "^\\([0-9]+,[0-9]+\\)-\\([0-9]+,[0-9]+\\)-\\([0-9]+,[0-9]+\\)-\\([0-9]+,[0-9]+\\)$";
+
     private static final int COORDINATE_RANGE_MAX = 24;
 
 
-    public void validateLineCoordinate(String coordinateInput) {
+    public void validateTwoCoordinate(String coordinateInput) {
         if (!Pattern.matches(LINE_COORDINATE_REGEX, coordinateInput)) {
+            throw new IllegalArgumentException(OutputView.WRONG_COORDINATE);
+        }
+    }
+
+    public void validateFourCoordinate(String coordinateInput) {
+        if (!Pattern.matches(RECTANGLE_COORDINATE_REGEX, coordinateInput)) {
             throw new IllegalArgumentException(OutputView.WRONG_COORDINATE);
         }
     }

@@ -14,8 +14,16 @@ public class Coordinate {
         return this.x.isSame(x);
     }
 
+    public boolean isSameX(Coordinate coordinate) {
+        return x.isSame(coordinate.x);
+    }
+
     public boolean isSameY(int y) {
         return this.y.isSame(y);
+    }
+
+    public boolean isSameY(Coordinate coordinate) {
+        return y.isSame(coordinate.y);
     }
 
     public double getLineDistance(Coordinate c) {

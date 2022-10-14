@@ -1,7 +1,6 @@
 package calculator.view;
 
 import calculator.model.Calculator;
-import calculator.model.LineCalculator;
 import calculator.model.RectangleCalculator;
 import calculator.utils.Validator;
 import java.util.Arrays;
@@ -28,9 +27,9 @@ public class InputView {
         try {
             List<Integer> coordinates = parseCoordinate(input);
 
-//            validator.validateLineCoordinate(input);
-//            return new LineCalculator(coordinates);
-
+//            validator.validateTwoCoordinate(input);
+            //            return new LineCalculator(coordinates);
+            validator.validateFourCoordinate(input);
             return new RectangleCalculator(coordinates);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());

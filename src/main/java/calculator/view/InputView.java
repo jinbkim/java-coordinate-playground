@@ -1,7 +1,7 @@
 package calculator.view;
 
 import calculator.model.calculator.Calculator;
-import calculator.model.calculator.RectangleCalculator;
+import calculator.model.calculator.TriangleCalculator;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -15,6 +15,7 @@ public class InputView {
     private static final String COORDINATE_SPLIT_REGEX = "[,-]";
     private static final String LINE_COORDINATE_REGEX = "^\\([0-9]+,[0-9]+\\)-\\([0-9]+,[0-9]+\\)$";
     private static final String RECTANGLE_COORDINATE_REGEX = "^\\([0-9]+,[0-9]+\\)-\\([0-9]+,[0-9]+\\)-\\([0-9]+,[0-9]+\\)-\\([0-9]+,[0-9]+\\)$";
+    private static final String TRIANGLE_COORDINATE_REGEX = "^\\([0-9]+,[0-9]+\\)-\\([0-9]+,[0-9]+\\)-\\([0-9]+,[0-9]+\\)$";
 
     public Calculator requestCoordinate() {
         String input = requestInput(OutputView.REQUEST_COORDINATE);
@@ -26,11 +27,12 @@ public class InputView {
         input = input.replaceAll(SPACE_REGEX, "");
         try {
             List<Integer> coordinates = parseCoordinate(input);
-
             //            validateTwoCoordinate(input);
             //            return new LineCalculator(coordinates);
-            validateFourCoordinate(input);
-            return new RectangleCalculator(coordinates);
+            //            validateFourCoordinate(input);
+            //            return new RectangleCalculator(coordinates);
+            validateThreeCoordinate(input);
+            return new TriangleCalculator(coordinates);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             return requestCoordinate();
@@ -45,6 +47,12 @@ public class InputView {
 
     private void validateFourCoordinate(String coordinateInput) {
         if (!Pattern.matches(RECTANGLE_COORDINATE_REGEX, coordinateInput)) {
+            throw new IllegalArgumentException(OutputView.WRONG_COORDINATE);
+        }
+    }
+
+    private void validateThreeCoordinate(String coordinateInput) {
+        if (!Pattern.matches(TRIANGLE_COORDINATE_REGEX, coordinateInput)) {
             throw new IllegalArgumentException(OutputView.WRONG_COORDINATE);
         }
     }

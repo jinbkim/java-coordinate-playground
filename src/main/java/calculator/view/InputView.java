@@ -2,10 +2,10 @@ package calculator.view;
 
 import calculator.model.Calculator;
 import calculator.model.RectangleCalculator;
-import calculator.utils.Validator;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class InputView {
@@ -13,8 +13,8 @@ public class InputView {
     private static final String SPACE_REGEX = "[\\s]";
     private static final String COORDINATE_DELETE_REGEX = "[()]";
     private static final String COORDINATE_SPLIT_REGEX = "[,-]";
-
-    private final Validator validator = new Validator();
+    private static final String LINE_COORDINATE_REGEX = "^\\([0-9]+,[0-9]+\\)-\\([0-9]+,[0-9]+\\)$";
+    private static final String RECTANGLE_COORDINATE_REGEX = "^\\([0-9]+,[0-9]+\\)-\\([0-9]+,[0-9]+\\)-\\([0-9]+,[0-9]+\\)-\\([0-9]+,[0-9]+\\)$";
 
     public Calculator requestCoordinate() {
         String input = requestInput(OutputView.REQUEST_COORDINATE);
@@ -27,13 +27,25 @@ public class InputView {
         try {
             List<Integer> coordinates = parseCoordinate(input);
 
-//            validator.validateTwoCoordinate(input);
+            //            validateTwoCoordinate(input);
             //            return new LineCalculator(coordinates);
-            validator.validateFourCoordinate(input);
+            validateFourCoordinate(input);
             return new RectangleCalculator(coordinates);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             return requestCoordinate();
+        }
+    }
+
+    private void validateTwoCoordinate(String coordinateInput) {
+        if (!Pattern.matches(LINE_COORDINATE_REGEX, coordinateInput)) {
+            throw new IllegalArgumentException(OutputView.WRONG_COORDINATE);
+        }
+    }
+
+    private void validateFourCoordinate(String coordinateInput) {
+        if (!Pattern.matches(RECTANGLE_COORDINATE_REGEX, coordinateInput)) {
+            throw new IllegalArgumentException(OutputView.WRONG_COORDINATE);
         }
     }
 

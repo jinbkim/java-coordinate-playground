@@ -1,15 +1,13 @@
 package calculator.model;
 
-import calculator.utils.Validator;
-
 public class Pos {
 
-    private final Validator validator = new Validator();
+    private static final int COORDINATE_RANGE_MAX = 24;
 
     private final int p;
 
     public Pos(int p) {
-        validator.validateCoordinateRange(p);
+        validatePositionRange(p);
         this.p = p;
     }
 
@@ -23,5 +21,11 @@ public class Pos {
 
     public boolean isSame(Pos pos) {
         return this.p == pos.p;
+    }
+
+    private void validatePositionRange(int position) {
+        if (position > COORDINATE_RANGE_MAX) {
+            throw new IllegalArgumentException();
+        }
     }
 }

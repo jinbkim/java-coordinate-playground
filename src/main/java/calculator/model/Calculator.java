@@ -71,7 +71,6 @@ public abstract class Calculator {
                 continue;
             }
             System.out.print(MARK);
-            break;
         }
         System.out.println();
     }

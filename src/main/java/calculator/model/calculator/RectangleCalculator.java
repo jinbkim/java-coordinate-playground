@@ -46,16 +46,27 @@ public class RectangleCalculator extends Calculator {
 
     private boolean isRectangle() {
         for (Coordinate coordinate : coordinates) {
-            if (coordinates.stream()
-                .filter(c -> c.isSameX(coordinate) && !c.isSameY(coordinate))
-                .count() != CROSSING_HORIZONTAL_POINT_COUNT) {
+            if (!isRectangleHorizontal(coordinate) || !isRectangleVertical(coordinate)) {
                 return false;
             }
-            if (coordinates.stream()
-                .filter(c -> !c.isSameX(coordinate) && c.isSameY(coordinate))
-                .count() != CROSSING_VERTICAL_POINT_COUNT) {
-                return false;
-            }
+        }
+        return true;
+    }
+
+    private boolean isRectangleHorizontal(Coordinate baseCoordinate) {
+        if (coordinates.stream()
+            .filter(c -> c.isSameX(baseCoordinate) && !c.isSameY(baseCoordinate))
+            .count() != CROSSING_HORIZONTAL_POINT_COUNT) {
+            return false;
+        }
+        return true;
+    }
+
+    private boolean isRectangleVertical(Coordinate baseCoordinate) {
+        if (coordinates.stream()
+            .filter(c -> !c.isSameX(baseCoordinate) && c.isSameY(baseCoordinate))
+            .count() != CROSSING_VERTICAL_POINT_COUNT) {
+            return false;
         }
         return true;
     }

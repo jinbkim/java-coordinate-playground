@@ -11,20 +11,28 @@ class InputViewTest {
     @Test
     void 좌표_정보_파싱하기() {
         //        Calculator lineCalculator = inputView.validateCoordinate("  (  1  ,  2  )  -  (  3  ,  4  )  ");
-        Calculator rectangleCalculator = inputView.validateCoordinate("  (  1  ,  1  )  -  (  1  ,  10  )  -  (  10  ,  1  )  -  (  10  ,  10  )  ");
+        //        Calculator rectangleCalculator = inputView.validateCoordinate("  (  1  ,  1  )  -  (  1  ,  10  )  -  (  10  ,  1  )  -  (  10  ,  10  )  ");
+        Calculator triangleCalculator = inputView.validateCoordinate("  (  1  ,  5  )  -  (  6  ,  10  )  -  (  20  ,  15  )");
 
         //        Assertions.assertThat(lineCalculator.isPoint(1, 2))
         //            .isEqualTo(true);
         //        Assertions.assertThat(lineCalculator.isPoint(3, 4))
         //            .isEqualTo(true);
 
-        Assertions.assertThat(rectangleCalculator.isPoint(1, 1))
+        //        Assertions.assertThat(rectangleCalculator.isPoint(1, 1))
+        //            .isEqualTo(true);
+        //        Assertions.assertThat(rectangleCalculator.isPoint(1, 10))
+        //            .isEqualTo(true);
+        //        Assertions.assertThat(rectangleCalculator.isPoint(10, 1))
+        //            .isEqualTo(true);
+        //        Assertions.assertThat(rectangleCalculator.isPoint(10, 10))
+        //            .isEqualTo(true)
+
+        Assertions.assertThat(triangleCalculator.isPoint(1, 5))
             .isEqualTo(true);
-        Assertions.assertThat(rectangleCalculator.isPoint(1, 10))
+        Assertions.assertThat(triangleCalculator.isPoint(6, 10))
             .isEqualTo(true);
-        Assertions.assertThat(rectangleCalculator.isPoint(10, 1))
-            .isEqualTo(true);
-        Assertions.assertThat(rectangleCalculator.isPoint(10, 10))
+        Assertions.assertThat(triangleCalculator.isPoint(20, 15))
             .isEqualTo(true);
     }
 
@@ -32,8 +40,8 @@ class InputViewTest {
     void 올바른된_좌표_형식인_경우() {
         //        Assertions.assertThatCode(() -> inputView.validateCoordinate("  (  0  ,  2  )  -  (  3  ,  4  )  "))
         //            .doesNotThrowAnyException();
-        Assertions.assertThatCode(() -> inputView.validateCoordinate("  (  1  ,  1  )  -  (  1  ,  10  )  -  (  10  ,  1  )  -  (  10  ,  10  )  "))
-            .doesNotThrowAnyException();
+        //        Assertions.assertThatCode(() -> inputView.validateCoordinate("  (  1  ,  1  )  -  (  1  ,  10  )  -  (  10  ,  1  )  -  (  10  ,  10  )  "))
+        //            .doesNotThrowAnyException();
     }
 
     @Test
@@ -47,16 +55,16 @@ class InputViewTest {
         //        Assertions.assertThatThrownBy(() -> inputView.validateCoordinate("  ((  1  ,  2  )   (  3  ,  4  )  "));
         //        Assertions.assertThatThrownBy(() -> inputView.validateCoordinate("  ((  1  ,  2  )  -  (  3  ,  4,  )  "));
 
-        Assertions.assertThatThrownBy(() -> inputView.validateCoordinate("  (  1a  ,  2  )  -  (  3  ,  4  )  -  (  5  ,  6  )  -  (  7  ,  8  )  "));
-        Assertions.assertThatThrownBy(() -> inputView.validateCoordinate("  (  1  ,  2  )  -  (  3  ,  b  )  -  (  5  ,  6  )  -  (  7  ,  8  )  "));
-        Assertions.assertThatThrownBy(() -> inputView.validateCoordinate("  (  1  ,  2  ),  -  (  3  ,  4  )  -  (  5  ,  6  )  -  (  7  ,  8  )  "));
-        Assertions.assertThatThrownBy(() -> inputView.validateCoordinate("  (  1  ,  2  )  -  (  3  ,  4  )  -  (  5    6  )  -  (  7  ,  8  )  "));
-        Assertions.assertThatThrownBy(() -> inputView.validateCoordinate("  (  1  ,  2  )  -  (  3  ,  4  )  -  (  5  ,  6  )  -  (  7  ,,  8  )  "));
-        Assertions.assertThatThrownBy(() -> inputView.validateCoordinate("  (  1  ,  2  )  --  (  3  ,  4  )  -  (  5  ,  6  )  -  (  7  ,  8  )  "));
-        Assertions.assertThatThrownBy(() -> inputView.validateCoordinate("  (  1  ,  2  )  -  (  3  ,  4  )  -  ((  5  ,  6  )  -  (  7  ,  8  )  "));
-        Assertions.assertThatThrownBy(() -> inputView.validateCoordinate("  (  1  ,  2  ))  -  (  3  ,  4  )  -  (  5  ,  6  )  -  (  7  ,  8  )  "));
-        Assertions.assertThatThrownBy(() -> inputView.validateCoordinate("  !(  1  ,  2  )  -  (  3  ,  4  )  -  (  5  ,  6  )  -  (  7  ,  8  )  "));
-        Assertions.assertThatThrownBy(() -> inputView.validateCoordinate("  (  1  ,  2  )  -  (  3  ,  4  )  -  (  5  ,  6  )  -  (  7  ,  8  )  "));
+        //        Assertions.assertThatThrownBy(() -> inputView.validateCoordinate("  (  1a  ,  2  )  -  (  3  ,  4  )  -  (  5  ,  6  )  -  (  7  ,  8  )  "));
+        //        Assertions.assertThatThrownBy(() -> inputView.validateCoordinate("  (  1  ,  2  )  -  (  3  ,  b  )  -  (  5  ,  6  )  -  (  7  ,  8  )  "));
+        //        Assertions.assertThatThrownBy(() -> inputView.validateCoordinate("  (  1  ,  2  ),  -  (  3  ,  4  )  -  (  5  ,  6  )  -  (  7  ,  8  )  "));
+        //        Assertions.assertThatThrownBy(() -> inputView.validateCoordinate("  (  1  ,  2  )  -  (  3  ,  4  )  -  (  5    6  )  -  (  7  ,  8  )  "));
+        //        Assertions.assertThatThrownBy(() -> inputView.validateCoordinate("  (  1  ,  2  )  -  (  3  ,  4  )  -  (  5  ,  6  )  -  (  7  ,,  8  )  "));
+        //        Assertions.assertThatThrownBy(() -> inputView.validateCoordinate("  (  1  ,  2  )  --  (  3  ,  4  )  -  (  5  ,  6  )  -  (  7  ,  8  )  "));
+        //        Assertions.assertThatThrownBy(() -> inputView.validateCoordinate("  (  1  ,  2  )  -  (  3  ,  4  )  -  ((  5  ,  6  )  -  (  7  ,  8  )  "));
+        //        Assertions.assertThatThrownBy(() -> inputView.validateCoordinate("  (  1  ,  2  ))  -  (  3  ,  4  )  -  (  5  ,  6  )  -  (  7  ,  8  )  "));
+        //        Assertions.assertThatThrownBy(() -> inputView.validateCoordinate("  !(  1  ,  2  )  -  (  3  ,  4  )  -  (  5  ,  6  )  -  (  7  ,  8  )  "));
+        //        Assertions.assertThatThrownBy(() -> inputView.validateCoordinate("  (  1  ,  2  )  -  (  3  ,  4  )  -  (  5  ,  6  )  -  (  7  ,  8  )  "));
 
     }
 
@@ -66,9 +74,9 @@ class InputViewTest {
         //        Assertions.assertThatThrownBy(() -> inputView.validateCoordinate("  ((  1  ,  25  )  -  (  3  ,  4  )  "));
         //        Assertions.assertThatThrownBy(() -> inputView.validateCoordinate("  ((  1  ,  2  )  -  (  -1  ,  25  )  "));
 
-        Assertions.assertThatThrownBy(() -> inputView.validateCoordinate("  (  25  ,  2  )  -  (  3  ,  4  )  -  (  5  ,  6  )  -  (  7  ,  8  )  "));
-        Assertions.assertThatThrownBy(() -> inputView.validateCoordinate("  (  1  ,  2  )  -  (  -3  ,  4  )  -  (  5  ,  6  )  -  (  7  ,  8  )  "));
-        Assertions.assertThatThrownBy(() -> inputView.validateCoordinate("  (  25  ,  2  )  -  (  3  ,  4  )  -  (  25  ,  6  )  -  (  7  ,  8  )  "));
-        Assertions.assertThatThrownBy(() -> inputView.validateCoordinate("  (  25  ,  2  )  -  (  3  ,  4  )  -  (  5  ,  6  )  -  (  7  ,  28  )  "));
+        //        Assertions.assertThatThrownBy(() -> inputView.validateCoordinate("  (  25  ,  2  )  -  (  3  ,  4  )  -  (  5  ,  6  )  -  (  7  ,  8  )  "));
+        //        Assertions.assertThatThrownBy(() -> inputView.validateCoordinate("  (  1  ,  2  )  -  (  -3  ,  4  )  -  (  5  ,  6  )  -  (  7  ,  8  )  "));
+        //        Assertions.assertThatThrownBy(() -> inputView.validateCoordinate("  (  25  ,  2  )  -  (  3  ,  4  )  -  (  25  ,  6  )  -  (  7  ,  8  )  "));
+        //        Assertions.assertThatThrownBy(() -> inputView.validateCoordinate("  (  25  ,  2  )  -  (  3  ,  4  )  -  (  5  ,  6  )  -  (  7  ,  28  )  "));
     }
 }

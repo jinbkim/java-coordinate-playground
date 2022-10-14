@@ -1,6 +1,6 @@
 package calculator.controller;
 
-import calculator.model.LineCalculator;
+import calculator.model.Calculator;
 import calculator.view.InputView;
 
 public class CalculateController {
@@ -8,8 +8,7 @@ public class CalculateController {
     private final InputView inputView = new InputView();
 
     public void run() {
-        LineCalculator lineCalculator = inputView.requestCoordinate();
-        lineCalculator.printCoordinate();
-        lineCalculator.printDistance();
+        Calculator calculator = inputView.requestCoordinate();
+        calculator.printCoordinate();
     }
 }

@@ -9,7 +9,7 @@ public class Validator {
     private static final int COORDINATE_RANGE_MAX = 24;
 
 
-    public void validateCoordinateInput(String coordinateInput) {
+    public void validateCoordinate(String coordinateInput) {
         if (!Pattern.matches(COORDINATE_REGEX, coordinateInput)) {
             throw new IllegalArgumentException(OutputView.WRONG_COORDINATE);
         }

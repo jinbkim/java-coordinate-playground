@@ -1,6 +1,6 @@
 package calculator.view;
 
-import calculator.model.LineCalculator;
+import calculator.model.Calculator;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -10,11 +10,11 @@ class InputViewTest {
 
     @Test
     void 좌표_정보_파싱하기() {
-        LineCalculator lineCalculator = inputView.validateCoordinate("  (  1  ,  2  )  -  (  3  ,  4  )  ");
+        Calculator lineCalculator = inputView.validateCoordinate("  (  1  ,  2  )  -  (  3  ,  4  )  ");
 
-        Assertions.assertThat(lineCalculator.isSameSrc(1, 2))
+        Assertions.assertThat(lineCalculator.isPoint(1, 2))
             .isEqualTo(true);
-        Assertions.assertThat(lineCalculator.isSameDst(3, 4))
+        Assertions.assertThat(lineCalculator.isPoint(3, 4))
             .isEqualTo(true);
     }
 

@@ -1,5 +1,9 @@
 package calculator.model;
 
+import calculator.model.figure.Figure;
+import calculator.model.figure.Line;
+import calculator.model.figure.Rectangle;
+import calculator.model.figure.Triangle;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 

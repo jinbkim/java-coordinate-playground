@@ -1,5 +1,6 @@
-package calculator.model;
+package calculator.model.figure;
 
+import calculator.model.Point;
 import calculator.view.OutputView;
 import java.util.List;
 

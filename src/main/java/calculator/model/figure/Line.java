@@ -1,4 +1,4 @@
-package calculator.model;
+package calculator.model.figure;
 
 import calculator.view.OutputView;
 import java.util.List;

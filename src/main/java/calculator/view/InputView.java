@@ -1,7 +1,7 @@
 package calculator.view;
 
-import calculator.model.Figure;
 import calculator.model.FigureFactory;
+import calculator.model.figure.Figure;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 

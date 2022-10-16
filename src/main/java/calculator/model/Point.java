@@ -36,6 +36,10 @@ public class Point {
         return y.isSame(point.y) && !x.isSame(point.x);
     }
 
+    public double getDistance(Point point) {
+        return Math.sqrt(Math.pow(x.getDiff(point.x), 2) + Math.pow(y.getDiff(point.y), 2));
+    }
+
     @Override
     public boolean equals(Object o) {
         return isSame((Point) o);

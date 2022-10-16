@@ -65,4 +65,11 @@ class FigureFactoryTest {
         Assertions.assertThatThrownBy(() -> FigureFactory.create("(1,2)-(3,6)-(7,5)-(9,3)"));
         Assertions.assertThatThrownBy(() -> FigureFactory.create("(1,1)-(2,1)-(2,2)-(3,3)"));
     }
+
+    @Test
+    void 좌표값이_24_초과인_경우() {
+        Assertions.assertThatThrownBy(() -> FigureFactory.create("(1,1)-(25,1))"));
+        Assertions.assertThatThrownBy(() -> FigureFactory.create("(1,1)-(25,1)-(2,2)"));
+        Assertions.assertThatThrownBy(() -> FigureFactory.create("(1,1)-(1,2)-(2,2)-(25,4)"));
+    }
 }

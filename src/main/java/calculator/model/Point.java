@@ -43,6 +43,6 @@ public class Point {
 
     @Override
     public int hashCode() {
-        return x.p * OUT_OF_RANGE_POS + y.p;
+        return x.get() * OUT_OF_RANGE_POS + y.get();
     }
 }

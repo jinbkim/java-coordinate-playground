@@ -1,10 +1,16 @@
 package calculator.model;
 
+import calculator.view.OutputView;
+
 public class Position {
 
-    int p;
+    private final int POSITION_MAX = 24;
+    private final int p;
 
     public Position(int p) {
+        if (p > POSITION_MAX) {
+            throw new IllegalArgumentException(OutputView.WRONG_COORDINATE_FORM);
+        }
         this.p = p;
     }
 
@@ -20,4 +26,7 @@ public class Position {
         return Math.abs(p - position.p);
     }
 
+    public int get() {
+        return p;
+    }
 }

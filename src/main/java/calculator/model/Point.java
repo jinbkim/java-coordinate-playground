@@ -28,7 +28,7 @@ public class Point {
         return y.getDiff(point.y) / x.getDiff(point.x);
     }
 
-    public boolean sameXAndDifferntY(Point point) {
+    public boolean sameXAndDifferentY(Point point) {
         return x.isSame(point.x) && !y.isSame(point.y);
     }
 

@@ -18,13 +18,37 @@ public class Rectangle extends AbstractFigure {
 
     @Override
     public void printResult() {
+        System.out.println(OutputView.RECTANGLE_AREA + getArea());
+    }
 
+    public double getArea() {
+        Point coordinate = points.get(0);
+
+        Double width = getWidth(coordinate);
+        Double height = getHeight(coordinate);
+        return width * height;
+    }
+
+    private double getWidth(Point basePoint) {
+        return points.stream()
+            .filter(point -> point.sameYAndDifferentX(basePoint))
+            .map(point -> point.getDistance(basePoint))
+            .findAny()
+            .get();
+    }
+
+    private double getHeight(Point basePoint) {
+        return points.stream()
+            .filter(point -> point.sameXAndDifferentY(basePoint))
+            .map(point -> point.getDistance(basePoint))
+            .findAny()
+            .get();
     }
 
     private boolean isRectangle() {
         for (Point point : points) {
             if (points.stream()
-                .filter(p -> p.sameXAndDifferntY(point))
+                .filter(p -> p.sameXAndDifferentY(point))
                 .count() != NUM_OF_POINT_SAME_X_AND_DIFFERENT_Y) {
                 return false;
             }

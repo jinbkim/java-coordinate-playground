@@ -16,6 +16,11 @@ public class Rectangle extends AbstractFigure {
         }
     }
 
+    @Override
+    public void printResult() {
+
+    }
+
     private boolean isRectangle() {
         for (Point point : points) {
             if (points.stream()

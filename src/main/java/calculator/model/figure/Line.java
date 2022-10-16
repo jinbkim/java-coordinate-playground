@@ -12,6 +12,11 @@ public class Line extends AbstractFigure {
         }
     }
 
+    @Override
+    public void printResult() {
+
+    }
+
     private boolean isLine() {
         if (points.stream()
             .distinct()

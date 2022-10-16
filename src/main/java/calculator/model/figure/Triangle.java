@@ -16,6 +16,11 @@ public class Triangle extends AbstractFigure {
         }
     }
 
+    @Override
+    public void printResult() {
+
+    }
+
     private boolean isTriangle() {
         List<Double> triangleSidesInclinations = getTriangleSidesInclination();
 

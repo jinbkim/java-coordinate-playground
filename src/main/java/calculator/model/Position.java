@@ -4,7 +4,7 @@ import calculator.view.OutputView;
 
 public class Position {
 
-    private final int POSITION_MAX = 24;
+    private final static int POSITION_MAX = 24;
     private final int p;
 
     public Position(int p) {
@@ -22,7 +22,7 @@ public class Position {
         return p == position.p;
     }
 
-    public int getDiff(Position position) {
+    public double getDiff(Position position) {
         return Math.abs(p - position.p);
     }
 

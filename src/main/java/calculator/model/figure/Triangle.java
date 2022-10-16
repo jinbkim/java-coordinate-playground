@@ -18,7 +18,21 @@ public class Triangle extends AbstractFigure {
 
     @Override
     public void printResult() {
+        System.out.println(OutputView.TRIANGLE_AREA + getArea());
+    }
 
+    public double getArea() {
+        Point PointA = points.get(0);
+        Point PointB = points.get(1);
+        Point PointC = points.get(2);
+
+        return HeronFormula(PointA.getDistance(PointB), PointB.getDistance(PointC), PointC.getDistance(PointA));
+    }
+
+    private double HeronFormula(double a, double b, double c) {
+        double s = (a + b + c) / 2;
+
+        return Math.sqrt(s * (s - a) * (s - b) * (s - c));
     }
 
     private boolean isTriangle() {

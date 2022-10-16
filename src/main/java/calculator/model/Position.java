@@ -11,4 +11,8 @@ public class Position {
     public boolean isSame(int p) {
         return this.p == p;
     }
+
+    public boolean isSame(Position p) {
+        return this.p == p.p;
+    }
 }

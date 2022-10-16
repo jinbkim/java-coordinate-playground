@@ -5,12 +5,12 @@ import java.util.List;
 
 public class AbstractFigure implements Figure {
 
-    private final List<Point> points;
+    protected final List<Point> points;
 
-    public AbstractFigure(List<Integer> points) {
-        this.points = new ArrayList<>();
-        for (int i = 0; i < points.size(); i += 2) {
-            this.points.add(new Point(points.get(i), points.get(i + 1)));
+    public AbstractFigure(List<Integer> positions) {
+        points = new ArrayList<>();
+        for (int i = 0; i < positions.size(); i += 2) {
+            points.add(new Point(positions.get(i), positions.get(i + 1)));
         }
     }
 

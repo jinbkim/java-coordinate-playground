@@ -46,4 +46,9 @@ class FigureFactoryTest {
         Assertions.assertThat(rectangle.hasPoint(2, 2))
             .isEqualTo(true);
     }
+
+    @Test
+    void 입력값에서_좌표가_2개일때_선이_아닌_경우() {
+        Assertions.assertThatThrownBy(() -> FigureFactory.create("(1,1)-(1,1)"));
+    }
 }

@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Rectangle extends AbstractFigure {
 
-    public Rectangle(List<Integer> points) {
-        super(points);
+    public Rectangle(List<Integer> positions) {
+        super(positions);
     }
 }

@@ -3,6 +3,8 @@ package calculator.model;
 
 public class Point {
 
+    private static final int OUT_OF_RANGE_POS = 25;
+
     private final Position x;
     private final Position y;
 
@@ -13,5 +15,19 @@ public class Point {
 
     public boolean isPoint(int x, int y) {
         return this.x.isSame(x) && this.y.isSame(y);
+    }
+
+    public boolean isSame(Point point) {
+        return x.isSame(point.x) && y.isSame(point.y);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        return isSame((Point) o);
+    }
+
+    @Override
+    public int hashCode() {
+        return x.p * OUT_OF_RANGE_POS + y.p;
     }
 }

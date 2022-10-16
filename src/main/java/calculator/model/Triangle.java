@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Triangle extends AbstractFigure {
 
-    public Triangle(List<Integer> points) {
-        super(points);
+    public Triangle(List<Integer> positions) {
+        super(positions);
     }
 }

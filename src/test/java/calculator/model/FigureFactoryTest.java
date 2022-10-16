@@ -8,7 +8,7 @@ class FigureFactoryTest {
     @Test
     void 입력값에_따라_올바른_객체_생성하기() {
         Figure line = FigureFactory.create("(1,1)-(2,2)");
-        Figure triangle = FigureFactory.create("(1,1)-(2,2)-(2,1");
+        Figure triangle = FigureFactory.create("(1,1)-(2,2)-(2,1)");
         Figure rectangle = FigureFactory.create("(1,1)-(1,2)-(2,1)-(2,2)");
 
         Assertions.assertThat(line instanceof Line)
@@ -22,7 +22,7 @@ class FigureFactoryTest {
     @Test
     void 좌표_정보_파싱하기() {
         Figure line = FigureFactory.create("(1,1)-(2,2)");
-        Figure triangle = FigureFactory.create("(1,1)-(2,2)-(2,1");
+        Figure triangle = FigureFactory.create("(1,1)-(2,2)-(2,1)");
         Figure rectangle = FigureFactory.create("(1,1)-(1,2)-(2,1)-(2,2)");
 
         Assertions.assertThat(line.hasPoint(1, 1))
@@ -50,5 +50,11 @@ class FigureFactoryTest {
     @Test
     void 입력값에서_좌표가_2개일때_선이_아닌_경우() {
         Assertions.assertThatThrownBy(() -> FigureFactory.create("(1,1)-(1,1)"));
+    }
+
+    @Test
+    void 입력값에서_좌표가_3개일때_삼각형이_아닌_경우() {
+        Assertions.assertThatThrownBy(() -> FigureFactory.create("(1,1)-(1,1)-(2,1)"));
+        Assertions.assertThatThrownBy(() -> FigureFactory.create("(1,1)-(2,2)-(3,3)"));
     }
 }

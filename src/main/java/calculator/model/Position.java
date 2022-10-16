@@ -12,7 +12,12 @@ public class Position {
         return this.p == p;
     }
 
-    public boolean isSame(Position p) {
-        return this.p == p.p;
+    public boolean isSame(Position position) {
+        return p == position.p;
     }
+
+    public int getDiff(Position position) {
+        return Math.abs(p - position.p);
+    }
+
 }

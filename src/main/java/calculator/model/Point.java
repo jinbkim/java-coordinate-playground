@@ -21,6 +21,13 @@ public class Point {
         return x.isSame(point.x) && y.isSame(point.y);
     }
 
+    public double getInclination(Point point) {
+        if (x.getDiff(point.x) == 0) {
+            return Double.POSITIVE_INFINITY;
+        }
+        return y.getDiff(point.y) / x.getDiff(point.x);
+    }
+
     @Override
     public boolean equals(Object o) {
         return isSame((Point) o);

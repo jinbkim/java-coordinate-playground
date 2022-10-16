@@ -22,9 +22,9 @@ public class Triangle extends AbstractFigure {
     }
 
     public double getArea() {
-        Point PointA = points.get(0);
-        Point PointB = points.get(1);
-        Point PointC = points.get(2);
+        Point PointA = getPoints().get(0);
+        Point PointB = getPoints().get(1);
+        Point PointC = getPoints().get(2);
 
         return HeronFormula(PointA.getDistance(PointB), PointB.getDistance(PointC), PointC.getDistance(PointA));
     }
@@ -50,8 +50,8 @@ public class Triangle extends AbstractFigure {
         List<Double> triangleSidesInclinations = new ArrayList<>();
 
         for (int i = 0; i < NUM_OF_TRIANGLE_SIDES; i++) {
-            Point pointA = points.get(i % NUM_OF_TRIANGLE_SIDES);
-            Point pointB = points.get((i + 1) % NUM_OF_TRIANGLE_SIDES);
+            Point pointA = getPoints().get(i % NUM_OF_TRIANGLE_SIDES);
+            Point pointB = getPoints().get((i + 1) % NUM_OF_TRIANGLE_SIDES);
 
             triangleSidesInclinations.add(pointA.getInclination(pointB));
         }

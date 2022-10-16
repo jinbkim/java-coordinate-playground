@@ -12,7 +12,7 @@ public abstract class AbstractFigure implements Figure {
     private final static String HORIZONTAL_LINE = "━━━";
     private final static String MARK = "@";
 
-    protected final List<Point> points;
+    private final List<Point> points;
 
     public AbstractFigure(List<Integer> positions) {
         points = new ArrayList<>();
@@ -23,7 +23,7 @@ public abstract class AbstractFigure implements Figure {
 
     @Override
     public List<Point> getPoints() {
-        return null;
+        return points;
     }
 
     @Override

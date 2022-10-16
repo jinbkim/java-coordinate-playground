@@ -22,7 +22,7 @@ public class Rectangle extends AbstractFigure {
     }
 
     public double getArea() {
-        Point coordinate = points.get(0);
+        Point coordinate = getPoints().get(0);
 
         Double width = getWidth(coordinate);
         Double height = getHeight(coordinate);
@@ -30,7 +30,7 @@ public class Rectangle extends AbstractFigure {
     }
 
     private double getWidth(Point basePoint) {
-        return points.stream()
+        return getPoints().stream()
             .filter(point -> point.sameYAndDifferentX(basePoint))
             .map(point -> point.getDistance(basePoint))
             .findAny()
@@ -38,7 +38,7 @@ public class Rectangle extends AbstractFigure {
     }
 
     private double getHeight(Point basePoint) {
-        return points.stream()
+        return getPoints().stream()
             .filter(point -> point.sameXAndDifferentY(basePoint))
             .map(point -> point.getDistance(basePoint))
             .findAny()
@@ -46,13 +46,13 @@ public class Rectangle extends AbstractFigure {
     }
 
     private boolean isRectangle() {
-        for (Point point : points) {
-            if (points.stream()
+        for (Point point : getPoints()) {
+            if (getPoints().stream()
                 .filter(p -> p.sameXAndDifferentY(point))
                 .count() != NUM_OF_POINT_SAME_X_AND_DIFFERENT_Y) {
                 return false;
             }
-            if (points.stream()
+            if (getPoints().stream()
                 .filter(p -> p.sameYAndDifferentX(point))
                 .count() != NUM_OF_POINT_SAME_Y_AND_DIFFERENT_X) {
                 return false;

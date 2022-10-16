@@ -15,16 +15,16 @@ public class Line extends AbstractFigure {
 
     @Override
     public void printResult() {
-        Point pointA = points.get(0);
-        Point pointB = points.get(1);
+        Point pointA = getPoints().get(0);
+        Point pointB = getPoints().get(1);
 
         System.out.println(OutputView.LINE_DISTANCE + pointA.getDistance(pointB));
     }
 
     private boolean isLine() {
-        if (points.stream()
+        if (getPoints().stream()
             .distinct()
-            .count() == points.size()) {
+            .count() == getPoints().size()) {
             return true;
         }
         return false;

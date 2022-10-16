@@ -7,10 +7,17 @@ public class Line extends AbstractFigure {
 
     public Line(List<Integer> positions) {
         super(positions);
-        if (points.stream()
-            .distinct()
-            .count() != points.size()) {
+        if (!isLine()) {
             throw new IllegalArgumentException(OutputView.WRONG_COORDINATE_FORM);
         }
+    }
+
+    private boolean isLine() {
+        if (points.stream()
+            .distinct()
+            .count() == points.size()) {
+            return true;
+        }
+        return false;
     }
 }

@@ -10,14 +10,20 @@ public class Triangle extends AbstractFigure {
 
     public Triangle(List<Integer> positions) {
         super(positions);
+        if (!isTriangle()) {
+            throw new IllegalArgumentException(OutputView.WRONG_COORDINATE_FORM);
+        }
+    }
 
+    private boolean isTriangle() {
         List<Double> triangleSidesInclinations = getTriangleSidesInclination();
 
         if (triangleSidesInclinations.stream()
             .distinct()
-            .count() != NUM_OF_TRIANGLE_SIDES) {
-            throw new IllegalArgumentException(OutputView.WRONG_COORDINATE_FORM);
+            .count() == NUM_OF_TRIANGLE_SIDES) {
+            return true;
         }
+        return false;
     }
 
     private List<Double> getTriangleSidesInclination() {

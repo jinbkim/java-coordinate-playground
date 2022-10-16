@@ -28,6 +28,14 @@ public class Point {
         return y.getDiff(point.y) / x.getDiff(point.x);
     }
 
+    public boolean sameXAndDifferntY(Point point) {
+        return x.isSame(point.x) && !y.isSame(point.y);
+    }
+
+    public boolean sameYAndDifferentX(Point point) {
+        return y.isSame(point.y) && !x.isSame(point.x);
+    }
+
     @Override
     public boolean equals(Object o) {
         return isSame((Point) o);
